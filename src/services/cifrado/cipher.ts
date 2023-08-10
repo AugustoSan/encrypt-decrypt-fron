@@ -19,7 +19,7 @@ AWS.config.update({
   region,
 });
 
-const encrypt = async (plainText: string): Promise<string> => {
+export const encrypt = async (plainText: string): Promise<string> => {
 
   // console.log('keyId: ', keyId);
   // console.log('accessKeyId: ', accessKeyId);

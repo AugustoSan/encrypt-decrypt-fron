@@ -25,14 +25,22 @@ const UploadView = () => {
     const uploadFile = async () => {
       if (hash && selectedFile) {
         try {
-          let formData = new FormData();
-          formData.append('hash', hash);
-          formData.append('image', selectedFile, selectedFile.name);
-          const response: AxiosResponse = await axiosInstance.post('/', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          });
+          const response: AxiosResponse = await axiosInstance.post('/', {
+            hash,
+            image: selectedFile
+          }, {
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              }
+            });
+          // let formData = new FormData();
+          // formData.append('hash', hash);
+          // formData.append('image', selectedFile, selectedFile.name);
+          // const response: AxiosResponse = await axiosInstance.post('/', formData, {
+          //   headers: {
+          //     'Content-Type': 'multipart/form-data'
+          //   }
+          // });
           setUploadResult(response.data);
           
         } catch (error) {
