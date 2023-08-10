@@ -1,14 +1,31 @@
 import AWS from 'aws-sdk';
 import { Buffer } from 'buffer';
 
+if (!process.env.REACT_APP_AWS_KEY_ID)  throw new Error('No defined REACT_APP_AWS_KEY_ID');
+if (!process.env.REACT_APP_AWS_ACCESS_KEY_ID)  throw new Error('No defined REACT_APP_AWS_ACCESS_KEY_ID');
+if (!process.env.REACT_APP_AWS_SECRET_ACCESS_KEY)  throw new Error('No defined REACT_APP_AWS_SECRET_ACCESS_KEY');
+if (!process.env.REACT_APP_AWS_REGION)  throw new Error('No defined REACT_APP_AWS_REGION');
+
+
+const keyId = process.env.REACT_APP_AWS_KEY_ID;
+const accessKeyId = process.env.REACT_APP_AWS_ACCESS_KEY_ID;
+const secretAccessKey = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
+const region = process.env.REACT_APP_AWS_REGION;
+
 // Configuración de AWS
 AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID ?? '',
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY ?? '',
-  region: process.env.AWS_REGION ?? 'us-east-1',
+  accessKeyId,
+  secretAccessKey,
+  region,
 });
 
-const encrypt = async (plainText: string, keyId: string): Promise<string> => {
+const encrypt = async (plainText: string): Promise<string> => {
+
+  // console.log('keyId: ', keyId);
+  // console.log('accessKeyId: ', accessKeyId);
+  // console.log('secretAccessKey: ', secretAccessKey);
+  // console.log('region: ', region);
+
   const kms = new AWS.KMS();
 
   const params = {
@@ -35,14 +52,20 @@ function arrayBufferToBase64(arrayBuffer: ArrayBuffer): string {
   return base64String;
 }
 
-const encryptFile = async (file: File, keyId: string): Promise<Blob> => {
+const encryptFile = async (file: File): Promise<Blob> => {
+
+  // console.log('keyId: ', keyId);
+  // console.log('accessKeyId: ', accessKeyId);
+  // console.log('secretAccessKey: ', secretAccessKey);
+  // console.log('region: ', region);
+  
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsArrayBuffer(file);
     reader.onload = async () => {
       const arrayBuffer = reader.result as ArrayBuffer;
       const base64String = arrayBufferToBase64(arrayBuffer);
-      const encryptedData = await encrypt(base64String, keyId);
+      const encryptedData = await encrypt(base64String);
       const blob = new Blob([encryptedData], { type: 'application/octet-stream' });
       resolve(blob);
     };

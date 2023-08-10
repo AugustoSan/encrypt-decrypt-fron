@@ -3,10 +3,10 @@
 import axios from 'axios';
 import { encryptFile } from '../cifrado/cipher';
 
-if (!process.env.REACT_APP_AWS_KEY_ID)  throw new Error('No defined REACT_APP_AWS_KEY_ID');
+// if (!process.env.REACT_APP_AWS_KEY_ID)  throw new Error('No defined REACT_APP_AWS_KEY_ID');
 
-const keyId = process.env.REACT_APP_AWS_KEY_ID;
-const baseURL = process.env.URL_API ?? 'http://localhost:4000/';
+// const keyId = process.env.REACT_APP_AWS_KEY_ID;
+const baseURL = process.env.REACT_APP_URL_API ?? 'http://localhost:4000/';
 console.log("🚀 ~ file: axios.ts:10 ~ baseURL:", baseURL)
 
 const axiosInstance = axios.create({
@@ -18,7 +18,7 @@ axiosInstance.interceptors.request.use(async (config) => {
   
   if (config.method === 'post' && config.data instanceof FormData) {
     const file = config.data.get('image') as File;
-    const encryptedFileBlob = await encryptFile(file, keyId);
+    const encryptedFileBlob = await encryptFile(file);
 
     // Crear una nueva FormData con la imagen encriptada
     let newFormData = new FormData();
