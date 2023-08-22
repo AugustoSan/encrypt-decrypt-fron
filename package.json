@@ -1,7 +1,7 @@
 {
   "name": "dicio-npm-liveness-bimodel",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.0.4",
   "type": "module",
   "description": "Liveness interactivo versión Bimodel",
   "license": "MIT",
@@ -10,12 +10,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/dicio-npm-liveness-bimodel.umd.js",
-  "module": "./dist/dicio-npm-liveness-bimodel.es.js",
+  "main": "./dist/npm-liveness_interactivo-main.umd.js",
+  "module": "./dist/npm-liveness_interactivo-main.es.js",
   "exports": {
     ".": {
-      "import": "./dist/dicio-npm-liveness-bimodel.es.js",
-      "require": "./dist/dicio-npm-liveness-bimodel.umd.js"
+      "import": "./dist/npm-liveness_interactivo-main.es.js",
+      "require": "./dist/npm-liveness_interactivo-main.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
@@ -58,6 +58,7 @@
     }
   },
   "dependencies": {
+    "@aws-sdk/client-kms": "^3.395.0",
     "crypto-js": "^4.1.1"
   }
 }

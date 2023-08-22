@@ -16,7 +16,7 @@ export default defineConfig({
 
       name: 'Liveness interactivo versión Ciencia de datos',
 
-      fileName: (format) => `dicio-npm-liveness-bimodel.${format}.js`
+      fileName: (format) => `npm-liveness_interactivo-main.${format}.js`
 
     },
     rollupOptions: {
@@ -43,9 +43,10 @@ export default defineConfig({
     cssInjectedByJsPlugin(),
 
   ],
-  publicDir: false,
+  // publicDir: false,
   define: {
     // By default, Vite doesn't include shims for NodeJS/
     // necessary for segment analytics lib to work
+    // global: {},
   },
 })

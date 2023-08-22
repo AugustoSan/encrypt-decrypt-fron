@@ -1,4 +1,5 @@
-import AWS from 'aws-sdk';
+// import AWS from 'aws-sdk';
+import { KMSClient, EncryptCommand, DecryptCommand } from "@aws-sdk/client-kms";
 import { Buffer } from 'buffer';
 
 // if (!process.env.REACT_APP_AWS_KEY_ID)  throw new Error('No defined REACT_APP_AWS_KEY_ID');
@@ -36,63 +37,107 @@ export const setVariablesKMS = (valor, variable) => {
 
 export const instanceKMS = () => {
   if(KMSkeyId && KMSaccessKeyId && KMSsecretAccessKey && KMSregion){
-    // Configuración de AWS
-    AWS.config.update({
-      accessKeyId: KMSaccessKeyId,
-      secretAccessKey: KMSsecretAccessKey,
-      region: KMSregion,
-    });
     console.log('Finalizo la configuracion');
+    return new KMSClient({
+        accessKeyId: KMSaccessKeyId,
+        secretAccessKey: KMSsecretAccessKey,
+        region: KMSregion,
+      });
   }
 }
 
+// const client = instanceKMS();
+
 export const encrypt = async (plainText) => {
-  try {
-    const kms = new AWS.KMS();
 
-    const params = {
-      KeyId: KMSkeyId,
-      Plaintext: Buffer.from(plainText),
-    };
-
-    return new Promise((resolve, reject) => {
-      kms.encrypt(params, (err, data) => {
-        if (err) {
-          console.error(err);
-          reject(err);
-        } else {
-          resolve(data.CiphertextBlob?.toString('base64') || '');
-        }
-      });
+  if(KMSkeyId && KMSaccessKeyId && KMSsecretAccessKey && KMSregion){
+    const client = new KMSClient({
+      region: KMSregion, // Cambia a tu región deseada
+      credentials: {
+        accessKeyId: KMSaccessKeyId,
+        secretAccessKey: KMSsecretAccessKey,
+      }
     });
-  } catch (error) {
-    console.log('error: ', error);
-    throw Error('Ocurrio un error al encriptar con kms');
+    try {
+      
+      const params = {
+        KeyId: KMSkeyId,
+        Plaintext: Buffer.from(plainText),
+      };
+      
+      const command = new EncryptCommand(params);
+      
+      return new Promise((resolve, reject) => {
+        client.send(command, (err, data) => {
+          console.log('entro en send');
+          if (err) {
+              console.log('ocurrio un error', err);
+              reject(err);
+            } else {
+              console.log('se encripto', data);
+              resolve(data.CiphertextBlob?.toString('base64') || '');
+            }
+          });
+      });
+    } catch (error) {
+      console.log('error: ', error);
+      throw Error('Ocurrio un error al encriptar con kms');
+    }
+  }
+  else{
+    console.log('Cliente undefined: ');
+      throw Error('Cliente undefined');
   }
 };
 
 export const decrypt = async (plainText) => {
 
-  try {
-    const kms = new AWS.KMS();
-
-    const params = {
-      CiphertextBlob: Buffer.from(plainText, 'base64')
-    };
-
-    return new Promise((resolve, reject) => {
-      kms.decrypt(params, (err, data) => {
-        if (err) {
-          console.error(err);
-          reject(err);
-        } else {
-          resolve(data.Plaintext?.toString() || '');
-        }
+  if(KMSkeyId && KMSaccessKeyId && KMSsecretAccessKey && KMSregion){
+    console.log('Finalizo la configuracion');
+    const client = new KMSClient({
+        accessKeyId: KMSaccessKeyId,
+        secretAccessKey: KMSsecretAccessKey,
+        region: KMSregion,
       });
-    });
-  } catch (error) {
-    console.log('error: ', error);
-    throw Error('Ocurrio un error al desencriptar con kms');
-  }
+
+    try {
+      const params = {
+        KeyId: KMSkeyId,
+        Plaintext: Buffer.from(plainText),
+      };
+
+      const command = new DecryptCommand(params);
+
+      return new Promise((resolve, reject) => {
+        client.send(command, (err, data) => {
+            if (err) {
+              console.error(err);
+              reject(err);
+            } else {
+              resolve(data.CiphertextBlob?.toString('base64') || '');
+            }
+          });
+      });
+      // const kms = new AWS.KMS();
+
+      // const params = {
+      //   CiphertextBlob: Buffer.from(plainText, 'base64')
+      // };
+
+      // return new Promise((resolve, reject) => {
+      //   kms.decrypt(params, (err, data) => {
+      //     if (err) {
+      //       console.error(err);
+      //       reject(err);
+      //     } else {
+      //       resolve(data.Plaintext?.toString() || '');
+      //     }
+      //   });
+      // });
+    } catch (error) {
+      console.log('error: ', error);
+      throw Error('Ocurrio un error al desencriptar con kms');
+    }
+}
 };
 
