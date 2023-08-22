@@ -1,0 +1,168 @@
+@font-face {
+  font-family: 'Muli Black';
+  src: url('Muli-Black.eot'); /* IE9 Compat Modes */
+  src: url('Muli-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-Black.woff') format('woff'), /* Modern Browsers */
+       url('Muli-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-Black.svg#599db1d9bf2abd4ce1c250b69de512cd') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Muli Black';
+  src: url('Muli-BlackItalic.eot'); /* IE9 Compat Modes */
+  src: url('Muli-BlackItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-BlackItalic.woff') format('woff'), /* Modern Browsers */
+       url('Muli-BlackItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-BlackItalic.svg#105c8427dce86b8b026b1660b003b5ae') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Muli';
+  src: url('Muli-Bold.eot'); /* IE9 Compat Modes */
+  src: url('Muli-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-Bold.woff') format('woff'), /* Modern Browsers */
+       url('Muli-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-Bold.svg#bceac5cdcd2bda5dc6d0c1a04b838dc7') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Muli';
+  src: url('Muli-BoldItalic.eot'); /* IE9 Compat Modes */
+  src: url('Muli-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-BoldItalic.woff') format('woff'), /* Modern Browsers */
+       url('Muli-BoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-BoldItalic.svg#702a28a5e2c5e6ad7acf5c17547a934e') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Muli ExtraBold';
+  src: url('Muli-ExtraBold.eot'); /* IE9 Compat Modes */
+  src: url('Muli-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-ExtraBold.woff') format('woff'), /* Modern Browsers */
+       url('Muli-ExtraBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-ExtraBold.svg#6f23915c5b9e75274cdd1a2fc9d5a1ee') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Muli ExtraBold';
+  src: url('Muli-ExtraBoldItalic.eot'); /* IE9 Compat Modes */
+  src: url('Muli-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-ExtraBoldItalic.woff') format('woff'), /* Modern Browsers */
+       url('Muli-ExtraBoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-ExtraBoldItalic.svg#97e778eadc669b13f1d50062d69a2d20') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Muli ExtraLight';
+  src: url('Muli-ExtraLight.eot'); /* IE9 Compat Modes */
+  src: url('Muli-ExtraLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-ExtraLight.woff') format('woff'), /* Modern Browsers */
+       url('Muli-ExtraLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-ExtraLight.svg#6520417471aa59a07902ee31754427a8') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Muli ExtraLight';
+  src: url('Muli-ExtraLightItalic.eot'); /* IE9 Compat Modes */
+  src: url('Muli-ExtraLightItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-ExtraLightItalic.woff') format('woff'), /* Modern Browsers */
+       url('Muli-ExtraLightItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-ExtraLightItalic.svg#6018dc910e2e4b8a121e541b48e1724b') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Muli';
+  src: url('Muli-Italic.eot'); /* IE9 Compat Modes */
+  src: url('Muli-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-Italic.woff') format('woff'), /* Modern Browsers */
+       url('Muli-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-Italic.svg#44cf9b31f9dde2efac9c52707f676b32') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Muli Light';
+  src: url('Muli-Light.eot'); /* IE9 Compat Modes */
+  src: url('Muli-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-Light.woff') format('woff'), /* Modern Browsers */
+       url('Muli-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-Light.svg#19f9d832d0aa77a64585327dbb1ab129') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Muli Light';
+  src: url('Muli-LightItalic.eot'); /* IE9 Compat Modes */
+  src: url('Muli-LightItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-LightItalic.woff') format('woff'), /* Modern Browsers */
+       url('Muli-LightItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-LightItalic.svg#1591391f98e65087e91511402cbb47f8') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Muli';
+  src: url('Muli-Regular.eot'); /* IE9 Compat Modes */
+  src: url('Muli-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-Regular.woff') format('woff'), /* Modern Browsers */
+       url('Muli-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-Regular.svg#42140a9a4718478f9abea8e90b2b6bd3') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Muli SemiBold';
+  src: url('Muli-SemiBold.eot'); /* IE9 Compat Modes */
+  src: url('Muli-SemiBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-SemiBold.woff') format('woff'), /* Modern Browsers */
+       url('Muli-SemiBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-SemiBold.svg#87fba5ddf6452174fe464d58bc9f1440') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Muli SemiBold';
+  src: url('Muli-SemiBoldItalic.eot'); /* IE9 Compat Modes */
+  src: url('Muli-SemiBoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Muli-SemiBoldItalic.woff') format('woff'), /* Modern Browsers */
+       url('Muli-SemiBoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Muli-SemiBoldItalic.svg#7af3d3d5a56029f5b439e3782faca249') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  700;
+}
+

@@ -1,0 +1,509 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+}
+
+@font-face {
+    font-family: 'Muli-Bold';
+    src: url('fonts/Muli-Bold.ttf') format("truetype");
+    font-weight: normal;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Muli-SemiBold';
+    src: url('fonts/Muli-SemiBold.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Muli-Regular';
+    src: url('fonts/Muli-Regular.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+#video-liveness-interactivo-bimodel {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    transform: scaleX(-1);
+}
+
+.videoRef-liveness-interactivo-bimodel {
+    background-color: black;
+    position: absolute;
+    z-index: 1;
+}
+
+/* canvas {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    transform: scaleX(-1);
+    z-index: 3 !important;
+} */
+
+.circle-progress {
+    width: 350px;
+    height: 350px;
+}
+
+.circle-progress-value {
+    stroke-width: 6px;
+    stroke: #0091FF;
+    stroke-dasharray: 0.6 3;
+}
+
+.circle-progress-circle {
+    stroke-width: 6px;
+    stroke: rgba(255, 255, 255, 0.516);
+    stroke-dasharray: 0.6 3;
+    stroke-dashoffset: 1.6;
+}
+
+.background-svg-liveness-interactivo-bimodel {
+    background: url('/src/assets/background_cam.jpg');
+    background-size: 250px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100vw;
+    position: absolute;
+    z-index: 5 !important;
+
+}
+
+.progressb-liveness-interactivo-bimodel {
+    width: 350px;
+    height: 350px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 6 !important;
+}
+
+.button-cancelar-liveness-interactivo-bimodel {
+    /*position: relative;
+    top: 65%; */
+    height: 44px;
+    width: 281px;
+    color: #6D7278;
+    font-family: 'Muli-Regular';
+    background-color: black;
+    border-color: #6D7278;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.ispinner-liveness-interactivo-bimodel {
+    position: relative;
+    margin: 0 auto;
+    top: 25%;
+    width: 20px;
+    height: 20px;
+}
+
+.ispinner-liveness-interactivo-bimodel .ispinner-blade {
+    position: absolute;
+    top: 6.5px;
+    left: 8.5px;
+    width: 2.5px;
+    height: 6.5px;
+    background-color: #8e8e93;
+    border-radius: 1.25px;
+    animation: iSpinnerBlade 1s linear infinite;
+    will-change: opacity;
+}
+
+.ispinner-liveness-interactivo-bimodel .ispinner-blade:nth-child(1) {
+    transform: rotate(45deg) translateY(-6.5px);
+    animation-delay: -1.625s;
+}
+
+.ispinner-liveness-interactivo-bimodel .ispinner-blade:nth-child(2) {
+    transform: rotate(90deg) translateY(-6.5px);
+    animation-delay: -1.5s;
+}
+
+.ispinner-liveness-interactivo-bimodel .ispinner-blade:nth-child(3) {
+    transform: rotate(135deg) translateY(-6.5px);
+    animation-delay: -1.375s;
+}
+
+.ispinner-liveness-interactivo-bimodel .ispinner-blade:nth-child(4) {
+    transform: rotate(180deg) translateY(-6.5px);
+    animation-delay: -1.25s;
+}
+
+.ispinner-liveness-interactivo-bimodel .ispinner-blade:nth-child(5) {
+    transform: rotate(225deg) translateY(-6.5px);
+    animation-delay: -1.125s;
+}
+
+.ispinner-liveness-interactivo-bimodel .ispinner-blade:nth-child(6) {
+    transform: rotate(270deg) translateY(-6.5px);
+    animation-delay: -1s;
+}
+
+.ispinner-liveness-interactivo-bimodel .ispinner-blade:nth-child(7) {
+    transform: rotate(315deg) translateY(-6.5px);
+    animation-delay: -0.875s;
+}
+
+.ispinner-liveness-interactivo-bimodel .ispinner-blade:nth-child(8) {
+    transform: rotate(360deg) translateY(-6.5px);
+    animation-delay: -0.75s;
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large {
+    width: 35px;
+    height: 35px;
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large .ispinner-blade {
+    top: 11.5px;
+    left: 15px;
+    width: 5px;
+    height: 12px;
+    border-radius: 2.5px;
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large .ispinner-blade:nth-child(1) {
+    transform: rotate(45deg) translateY(-11.5px);
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large .ispinner-blade:nth-child(2) {
+    transform: rotate(90deg) translateY(-11.5px);
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large .ispinner-blade:nth-child(3) {
+    transform: rotate(135deg) translateY(-11.5px);
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large .ispinner-blade:nth-child(4) {
+    transform: rotate(180deg) translateY(-11.5px);
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large .ispinner-blade:nth-child(5) {
+    transform: rotate(225deg) translateY(-11.5px);
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large .ispinner-blade:nth-child(6) {
+    transform: rotate(270deg) translateY(-11.5px);
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large .ispinner-blade:nth-child(7) {
+    transform: rotate(315deg) translateY(-11.5px);
+}
+
+.ispinner-liveness-interactivo-bimodel.ispinner-large .ispinner-blade:nth-child(8) {
+    transform: rotate(360deg) translateY(-11.5px);
+}
+
+@keyframes iSpinnerBlade {
+    0% {
+        opacity: 0.85;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+
+    100% {
+        opacity: 0.25;
+    }
+}
+
+.img-alert-liveness-interactivo-bimodel {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (min-device-width: 500px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -ms-overflow-style: none;
+        /* for Internet Explorer, Edge */
+        scrollbar-width: none;
+        /* for Firefox */
+    }
+
+    .videoRef-liveness-interactivo-bimodel {
+        background-color: black;
+        position: absolute;
+        height: 3600px;
+        width: 3600px;
+        z-index: 1;
+    }
+
+    .circle-progress {
+        width: 350px;
+        height: 350px;
+    }
+
+    .circle-progress-value {
+        stroke-width: 6px;
+        stroke: #0091FF;
+        stroke-dasharray: 0.6 3;
+    }
+
+    .circle-progress-circle {
+        stroke-width: 6px;
+        stroke: rgba(255, 255, 255, 0.516);
+        stroke-dasharray: 0.6 3;
+        stroke-dashoffset: 1.6;
+    }
+
+    .background-svg-liveness-interactivo-bimodel {
+        background: url('/src/assets/background_cam.jpg');
+        background-size: 310px;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        min-height: 480px;
+        width: 480px;
+        position: absolute;
+        z-index: 5 !important;
+
+    }
+
+    .progressb-liveness-interactivo-bimodel {
+        width: 350px;
+        height: 350px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        position: absolute;
+        z-index: 6 !important;
+    }
+
+}
+
+/* Nuevos estilos */
+
+.main_container-liveness-interactivo-bimodel {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.container-flex-liveness-interactivo-bimodel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: black;
+}
+
+.instruction-container-liveness-interactivo-bimodel {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex: 0.4 1;
+
+    z-index: 2;
+}
+
+.mask-container-liveness-interactivo-bimodel {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    /* flex-direction: column; */
+    flex: 1 1;
+    /* border-right: 30px solid rgba(0, 0, 0, 0.9);
+	border-left: 30px solid rgba(0, 0, 0, 0.9); */
+    z-index: 1;
+    border-radius: 15px;
+    position: relative;
+}
+
+.buttons-container-liveness-interactivo-bimodel {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex: 0.2 1;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 5;
+}
+
+.instruction-liveness-interactivo-bimodel {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 3;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.instruction-liveness-interactivo-bimodel p {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+    font-family: 'Muli', sans-serif;
+    padding: 15px 0;
+}
+
+.instruction-liveness-interactivo-bimodel b {
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Muli Bold', sans-serif;
+}
+
+.back-spinner-liveness-interactivo-bimodel {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    background: rgba(0, 0, 0, .75);
+    z-index: 999;
+    border-radius: 5px;
+}
+
+html,
+body {
+    height: 100%;
+    touch-action: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    -webkit-overflow-scrolling: touch;
+    /* for Safari */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overscroll-behavior-y: none;
+}
+
+.sprite-cuadro-liveness-interactivo-bimodel {
+    width: 191px;
+    height: 45px;
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    margin-left: -95px;
+    margin-top: -22px;
+    z-index: 99;
+    background: url('/src/assets/sprite_animation_b.png') no-repeat;
+    background-position: 0 0;
+    opacity: 0;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    display: none;
+}
+
+.sprite-cuadro-liveness-interactivo-bimodel.animado-liveness-interactivo-bimodel {
+    opacity: 1;
+    -webkit-animation: playb steps(5) 2s infinite;
+    -moz-animation: playb steps(5) 2s infinite;
+    -ms-animation: playb steps(5) 2s infinite;
+    -o-animation: playb steps(5) 2s infinite;
+    animation: playb steps(5) 2s infinite;
+}
+
+@keyframes playb {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -470px;
+    }
+}
+
+@-moz-keyframes playb {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -470px;
+    }
+}
+
+@-webkit-keyframes playb {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -470px;
+    }
+}
+
+@-ms-keyframes playb {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -470px;
+    }
+}
+
+@-o-keyframes playb {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -470px;
+    }
+}
+
+.canvas-liveness-interactivo-bimodel {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    transform: scaleX(-1);
+    z-index: 3 !important;
+}

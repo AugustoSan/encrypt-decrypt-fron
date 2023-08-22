@@ -5,10 +5,6 @@
 
 # Node artifact files
 node_modules/
-client/node_modules/
-client/package-lock.json
-server/node_modules/
-server/package-lock.json
 dist/
 
 # Compiled Java class files
@@ -51,7 +47,5 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-
-package-lock.json
 
 .env
